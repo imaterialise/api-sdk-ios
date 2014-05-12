@@ -23,8 +23,6 @@
 		00E07472191BEC1500CA50F6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E07471191BEC1500CA50F6 /* XCTest.framework */; };
 		00E07473191BEC1500CA50F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E0744C191BEC1500CA50F6 /* Foundation.framework */; };
 		00E07474191BEC1500CA50F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E07450191BEC1500CA50F6 /* UIKit.framework */; };
-		00E0747C191BEC1500CA50F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00E0747A191BEC1500CA50F6 /* InfoPlist.strings */; };
-		00E0747E191BEC1500CA50F6 /* imat_sdk_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E0747D191BEC1500CA50F6 /* imat_sdk_iosTests.m */; };
 		00E074A5191BEC4900CA50F6 /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E07489191BEC4900CA50F6 /* ApiManager.m */; };
 		00E074A6191BEC4900CA50F6 /* IMFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E0748B191BEC4900CA50F6 /* IMFile.m */; };
 		00E074A7191BEC4900CA50F6 /* IMModelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E0748D191BEC4900CA50F6 /* IMModelRequest.m */; };
@@ -75,9 +73,6 @@
 		00E0746A191BEC1500CA50F6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		00E07470191BEC1500CA50F6 /* imat-sdk-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "imat-sdk-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E07471191BEC1500CA50F6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		00E07479191BEC1500CA50F6 /* imat-sdk-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "imat-sdk-iosTests-Info.plist"; sourceTree = "<group>"; };
-		00E0747B191BEC1500CA50F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		00E0747D191BEC1500CA50F6 /* imat_sdk_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = imat_sdk_iosTests.m; sourceTree = "<group>"; };
 		00E07488191BEC4900CA50F6 /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApiManager.h; path = Models/ApiManager.h; sourceTree = "<group>"; };
 		00E07489191BEC4900CA50F6 /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApiManager.m; path = Models/ApiManager.m; sourceTree = "<group>"; };
 		00E0748A191BEC4900CA50F6 /* IMFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMFile.h; sourceTree = "<group>"; };
@@ -169,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				00E07452191BEC1500CA50F6 /* imat-sdk-ios */,
-				00E07477191BEC1500CA50F6 /* imat-sdk-iosTests */,
 				00E0744B191BEC1500CA50F6 /* Frameworks */,
 				00E0744A191BEC1500CA50F6 /* Products */,
 			);
@@ -223,24 +217,6 @@
 				00E07455191BEC1500CA50F6 /* InfoPlist.strings */,
 				00E07458191BEC1500CA50F6 /* main.m */,
 				00E0745A191BEC1500CA50F6 /* imat-sdk-ios-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		00E07477191BEC1500CA50F6 /* imat-sdk-iosTests */ = {
-			isa = PBXGroup;
-			children = (
-				00E0747D191BEC1500CA50F6 /* imat_sdk_iosTests.m */,
-				00E07478191BEC1500CA50F6 /* Supporting Files */,
-			);
-			path = "imat-sdk-iosTests";
-			sourceTree = "<group>";
-		};
-		00E07478191BEC1500CA50F6 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				00E07479191BEC1500CA50F6 /* imat-sdk-iosTests-Info.plist */,
-				00E0747A191BEC1500CA50F6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -376,7 +352,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E0747C191BEC1500CA50F6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +388,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E0747E191BEC1500CA50F6 /* imat_sdk_iosTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,14 +424,6 @@
 				00E07462191BEC1500CA50F6 /* Base */,
 			);
 			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		00E0747A191BEC1500CA50F6 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				00E0747B191BEC1500CA50F6 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
