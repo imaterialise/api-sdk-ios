@@ -45,7 +45,7 @@
     modelRequest.file = file;
     modelRequest.fileUnits = [self.fileUnitSegmentedControl titleForSegmentAtIndex:self.fileUnitSegmentedControl.selectedSegmentIndex];
     
-    apiManager = [[ApiManager alloc] initWitSiteUrl:@"https://imatsandbox.materialise.net" toolId: @"adca84dc-efb1-4a94-9507-336ce4a00029" apiCode:nil];
+    apiManager = [[ApiManager alloc] initWitSiteUrl:@"https://imatsandbox.materialise.net" toolId: @"[TOOL ID HERE]" apiCode:nil];
     
     [apiManager uploadModel:modelRequest success: ^(IMModelResponse* response)
      {
