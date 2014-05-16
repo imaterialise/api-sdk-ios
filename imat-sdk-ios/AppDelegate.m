@@ -20,7 +20,22 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
-    [ApiManager setup:@"https://imatsandbox.materialise.net" toolId: @"[tool id here]" apiCode:@"[api code here]"];
+    NSString* apiCode = @"[ApiCode here]";
+    NSString* toolId = @"[ToolId here]";
+    
+    if([apiCode isEqual:@"[ApiCode here]"])
+    {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Erorr"
+                                                          message: @"ApiCode is not configured in AppDelegate"                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        
+        [message show];
+    }
+    
+    [ApiManager setup:@"https://imatsandbox.materialise.net" toolId: toolId apiCode: apiCode];
+    
+    
     
     return YES;
 }
