@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ApiManager.h"
 
 @implementation AppDelegate
 
@@ -19,9 +20,7 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
-    
-    
-    
+    [ApiManager setup:@"https://imatsandbox.materialise.net" toolId: @"[tool id here]" apiCode:@"[api code here]"];
     
     return YES;
 }

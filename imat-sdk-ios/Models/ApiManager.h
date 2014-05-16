@@ -9,13 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "IMModelRequest.h"
 #import "IMModelResponse.h"
+#import "IMUploadModelReportRequest.h"
+#import "IMUploadModelReportResponse.h"
 
 @interface ApiManager : NSObject
 
-- (id) initWitSiteUrl: (NSString*) siteUrl toolId: (NSString*) toolId apiCode: (NSString*) apiCode;
++ (void) setup: (NSString*) siteUrl toolId: (NSString*) toolId apiCode: (NSString*) apiCode;
+
++ (ApiManager*) instance;
 
 - (void) uploadModel: (IMModelRequest*) model
              success: (void(^)(IMModelResponse* modelReponse)) success
              failure: (void(^)(NSError* error)) failure;
+
+- (void) getModelsReport: (IMUploadModelReportRequest*) request
+                 success: (void(^)(IMUploadModelReportResponse* reponse)) success
+                 failure: (void(^)(NSError* error)) failure;
+
 
 @end

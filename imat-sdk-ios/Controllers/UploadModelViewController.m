@@ -15,7 +15,6 @@
 
 @interface UploadModelViewController ()
 {
-    ApiManager* apiManager;
     MBProgressHUD* hud;
 }
 
@@ -45,8 +44,7 @@
     modelRequest.file = file;
     modelRequest.fileUnits = [self.fileUnitSegmentedControl titleForSegmentAtIndex:self.fileUnitSegmentedControl.selectedSegmentIndex];
     
-    apiManager = [[ApiManager alloc] initWitSiteUrl:@"https://imatsandbox.materialise.net" toolId: @"[TOOL ID HERE]" apiCode:nil];
-    
+    ApiManager* apiManager = [ApiManager instance];
     [apiManager uploadModel:modelRequest success: ^(IMModelResponse* response)
      {
         UploadModelResultViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier: @"UploadModelResultViewController"];

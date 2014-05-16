@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "UploadModelViewController.h"
+#import "UploadModelReportViewController.h"
 
 @interface MasterViewController () {
     NSMutableArray *objects;
@@ -23,7 +24,7 @@
     
     objects = [[NSMutableArray alloc] init];
     [objects addObject:@"Upload model"];
-    //[objects addObject:@"Uploaded models reporting"];
+    [objects addObject:@"Uploaded models reporting"];
 }
 
 #pragma mark - Table View
@@ -52,9 +53,17 @@
     if(indexPath.row == 0)
     {
         UploadModelViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier: @"UploadModelViewController"];
-        
+
         [self.navigationController pushViewController:controller animated: true];
     }
+    else if(indexPath.row == 1)
+    {
+        UploadModelReportViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier: @"UploadModelReportViewController"];
+
+        [self.navigationController pushViewController:controller animated: true];
+    }
+    
+    
 }
 
 @end

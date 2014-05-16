@@ -37,6 +37,12 @@
 		00E074B0191BEC4900CA50F6 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E074A2191BEC4900CA50F6 /* AFURLResponseSerialization.m */; };
 		00E074B1191BEC4900CA50F6 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E074A4191BEC4900CA50F6 /* AFURLSessionManager.m */; };
 		00E074B7191BEE2800CA50F6 /* 10x10x10.stl in Resources */ = {isa = PBXBuildFile; fileRef = 00E074B6191BEE2800CA50F6 /* 10x10x10.stl */; };
+		00F079D619260B2F00566136 /* UploadModelReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F079D519260B2F00566136 /* UploadModelReportViewController.m */; };
+		00F079DA19260D6500566136 /* IMUploadModelReportRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F079D919260D6500566136 /* IMUploadModelReportRequest.m */; };
+		00F079DD19260E2900566136 /* IMUploadModelReportResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F079DC19260E2900566136 /* IMUploadModelReportResponse.m */; };
+		00F079E0192618F000566136 /* IMUploadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F079DF192618F000566136 /* IMUploadModel.m */; };
+		00F079E319261E0000566136 /* UploadModelReportResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F079E219261E0000566136 /* UploadModelReportResultViewController.m */; };
+		00F079E61926232D00566136 /* UploadModelReportDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F079E51926232D00566136 /* UploadModelReportDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +107,18 @@
 		00E074A3191BEC4900CA50F6 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		00E074A4191BEC4900CA50F6 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		00E074B6191BEE2800CA50F6 /* 10x10x10.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10x10x10.stl; sourceTree = "<group>"; };
+		00F079D419260B2F00566136 /* UploadModelReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadModelReportViewController.h; path = Controllers/UploadModelReportViewController.h; sourceTree = "<group>"; };
+		00F079D519260B2F00566136 /* UploadModelReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadModelReportViewController.m; path = Controllers/UploadModelReportViewController.m; sourceTree = "<group>"; };
+		00F079D819260D6500566136 /* IMUploadModelReportRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUploadModelReportRequest.h; sourceTree = "<group>"; };
+		00F079D919260D6500566136 /* IMUploadModelReportRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUploadModelReportRequest.m; sourceTree = "<group>"; };
+		00F079DB19260E2900566136 /* IMUploadModelReportResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUploadModelReportResponse.h; sourceTree = "<group>"; };
+		00F079DC19260E2900566136 /* IMUploadModelReportResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUploadModelReportResponse.m; sourceTree = "<group>"; };
+		00F079DE192618F000566136 /* IMUploadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMUploadModel.h; sourceTree = "<group>"; };
+		00F079DF192618F000566136 /* IMUploadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMUploadModel.m; sourceTree = "<group>"; };
+		00F079E119261E0000566136 /* UploadModelReportResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadModelReportResultViewController.h; path = Controllers/UploadModelReportResultViewController.h; sourceTree = "<group>"; };
+		00F079E219261E0000566136 /* UploadModelReportResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadModelReportResultViewController.m; path = Controllers/UploadModelReportResultViewController.m; sourceTree = "<group>"; };
+		00F079E41926232D00566136 /* UploadModelReportDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadModelReportDetailsViewController.h; path = Controllers/UploadModelReportDetailsViewController.h; sourceTree = "<group>"; };
+		00F079E51926232D00566136 /* UploadModelReportDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadModelReportDetailsViewController.m; path = Controllers/UploadModelReportDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +161,8 @@
 		00BBBE2C1920C3440068DC9E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				00BBBE311920C3BB0068DC9E /* UploadModelViewController.h */,
-				00BBBE321920C3BB0068DC9E /* UploadModelViewController.m */,
-				00BBBE341920C7480068DC9E /* UploadModelResultViewController.h */,
-				00BBBE351920C7480068DC9E /* UploadModelResultViewController.m */,
+				00F079D319260AD400566136 /* ModelReport */,
+				00BBBE3B192235420068DC9E /* UploadModel */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -158,6 +174,17 @@
 				00BBBE391920CE3A0068DC9E /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		00BBBE3B192235420068DC9E /* UploadModel */ = {
+			isa = PBXGroup;
+			children = (
+				00BBBE311920C3BB0068DC9E /* UploadModelViewController.h */,
+				00BBBE321920C3BB0068DC9E /* UploadModelViewController.m */,
+				00BBBE341920C7480068DC9E /* UploadModelResultViewController.h */,
+				00BBBE351920C7480068DC9E /* UploadModelResultViewController.m */,
+			);
+			name = UploadModel;
 			sourceTree = "<group>";
 		};
 		00E07440191BEC1500CA50F6 = {
@@ -224,6 +251,7 @@
 		00E07487191BEC4900CA50F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				00F079D719260D4100566136 /* UploadModelReport */,
 				00BBBE2B1920C3330068DC9E /* UploadModel */,
 			);
 			path = Models;
@@ -262,6 +290,32 @@
 				00E074A4191BEC4900CA50F6 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		00F079D319260AD400566136 /* ModelReport */ = {
+			isa = PBXGroup;
+			children = (
+				00F079D419260B2F00566136 /* UploadModelReportViewController.h */,
+				00F079D519260B2F00566136 /* UploadModelReportViewController.m */,
+				00F079E119261E0000566136 /* UploadModelReportResultViewController.h */,
+				00F079E219261E0000566136 /* UploadModelReportResultViewController.m */,
+				00F079E41926232D00566136 /* UploadModelReportDetailsViewController.h */,
+				00F079E51926232D00566136 /* UploadModelReportDetailsViewController.m */,
+			);
+			name = ModelReport;
+			sourceTree = "<group>";
+		};
+		00F079D719260D4100566136 /* UploadModelReport */ = {
+			isa = PBXGroup;
+			children = (
+				00F079D819260D6500566136 /* IMUploadModelReportRequest.h */,
+				00F079D919260D6500566136 /* IMUploadModelReportRequest.m */,
+				00F079DB19260E2900566136 /* IMUploadModelReportResponse.h */,
+				00F079DC19260E2900566136 /* IMUploadModelReportResponse.m */,
+				00F079DE192618F000566136 /* IMUploadModel.h */,
+				00F079DF192618F000566136 /* IMUploadModel.m */,
+			);
+			name = UploadModelReport;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,14 +421,20 @@
 				00E074A9191BEC4900CA50F6 /* AFHTTPRequestOperation.m in Sources */,
 				00E074A5191BEC4900CA50F6 /* ApiManager.m in Sources */,
 				00E074AA191BEC4900CA50F6 /* AFHTTPRequestOperationManager.m in Sources */,
+				00F079E0192618F000566136 /* IMUploadModel.m in Sources */,
+				00F079E61926232D00566136 /* UploadModelReportDetailsViewController.m in Sources */,
+				00F079DA19260D6500566136 /* IMUploadModelReportRequest.m in Sources */,
 				00E0745D191BEC1500CA50F6 /* AppDelegate.m in Sources */,
 				00E074A8191BEC4900CA50F6 /* IMModelResponse.m in Sources */,
+				00F079D619260B2F00566136 /* UploadModelReportViewController.m in Sources */,
 				00BBBE3A1920CE3A0068DC9E /* MBProgressHUD.m in Sources */,
 				00E074AB191BEC4900CA50F6 /* AFHTTPSessionManager.m in Sources */,
 				00E07466191BEC1500CA50F6 /* MasterViewController.m in Sources */,
+				00F079E319261E0000566136 /* UploadModelReportResultViewController.m in Sources */,
 				00E074A7191BEC4900CA50F6 /* IMModelRequest.m in Sources */,
 				00E074A6191BEC4900CA50F6 /* IMFile.m in Sources */,
 				00E074AD191BEC4900CA50F6 /* AFSecurityPolicy.m in Sources */,
+				00F079DD19260E2900566136 /* IMUploadModelReportResponse.m in Sources */,
 				00BBBE361920C7480068DC9E /* UploadModelResultViewController.m in Sources */,
 				00E07459191BEC1500CA50F6 /* main.m in Sources */,
 				00E074AF191BEC4900CA50F6 /* AFURLRequestSerialization.m in Sources */,
