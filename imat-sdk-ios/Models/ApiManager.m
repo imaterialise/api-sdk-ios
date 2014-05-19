@@ -10,6 +10,8 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "AFURLRequestSerialization.h"
 #import "IMUploadModel.h"
+#import "IMPricingResponseModel.h"
+#import "IMError.h"
 
 @interface ApiManager()
 
@@ -181,6 +183,140 @@ static NSString* siteUrl;
                    }
     ];
 }
+
+
+- (void) getPrice: (IMParametersPricingRequest*) request
+          success: (void(^)(IMParametersPricingResponse* reponse)) success
+          failure: (void(^)(NSError* error)) failure
+{
+    NSString* url = [NSString stringWithFormat:@"%@/web-api/pricing", [ApiManager siteUrl]];
+    
+    AFHTTPRequestOperationManager* m = [AFHTTPRequestOperationManager manager];
+    m.securityPolicy.allowInvalidCertificates = true;
+    m.requestSerializer = [AFJSONRequestSerializer serializer];
+    m.responseSerializer = [AFJSONResponseSerializer serializer];
+    [m.requestSerializer setValue: [ApiManager apiCode] forHTTPHeaderField: @"ApiCode"];
+
+    NSMutableDictionary* pricingRequestJson = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary* shippingJson = [[NSMutableDictionary alloc] init];
+    [shippingJson setValue:request.shipment.countryCode forKey:@"countryCode"];
+    [shippingJson setValue:request.shipment.stateCode forKey:@"stateCode"];
+    [shippingJson setValue:request.shipment.city forKey:@"city"];
+    [shippingJson setValue:request.shipment.zipCode forKey:@"zipCode"];
+    
+    NSMutableArray* models = [[NSMutableArray alloc] init];
+    for (IMPricingModel* model in request.models)
+    {
+        NSMutableDictionary* modelJson = [[NSMutableDictionary alloc] init];
+        [modelJson setValue:model.toolId forKey:@"toolID"];
+        [modelJson setValue:model.modelReference forKey:@"modelReference"];
+        [modelJson setValue:model.materialId forKey:@"materialID"];
+        [modelJson setValue:model.finishId forKey:@"finishID"];
+        [modelJson setValue: [NSNumber numberWithInt: model.quantity] forKey:@"quantity"];
+        
+        [modelJson setValue: [NSNumber numberWithFloat: model.xDimMm] forKey:@"xDimMm"];
+        [modelJson setValue: [NSNumber numberWithFloat: model.yDimMm] forKey:@"yDimMm"];
+        [modelJson setValue: [NSNumber numberWithFloat: model.zDimMm] forKey:@"zDimMm"];
+        
+        [modelJson setValue: [NSNumber numberWithFloat: model.volumeCm3] forKey:@"volumeCm3"];
+        [modelJson setValue: [NSNumber numberWithFloat: model.surfaceCm2] forKey:@"surfaceCm2"];
+        
+        [models addObject:modelJson];
+    }
+    
+    [pricingRequestJson setValue:models forKey:@"models"];
+    [pricingRequestJson setValue:shippingJson forKey:@"shipmentInfo"];
+    [pricingRequestJson setValue:request.currency forKey:@"currency"];
+ 
+    
+    
+    
+    [m POST: url parameters: pricingRequestJson success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        IMParametersPricingResponse * response = [[IMParametersPricingResponse alloc] init];
+        
+        NSDictionary* errorJson = [responseObject objectForKey:@"error"];
+        if(errorJson != nil)
+        {
+            IMError* error = [[IMError alloc] init];
+            error.code = ((NSNumber*)errorJson[@"code"]).intValue;
+            error.message = errorJson[@"message"];
+            response.error = error;
+            
+            return success(response);
+        }
+
+        
+        response.disclaimer = responseObject[@"disclaimer"];
+        response.currency = responseObject[@"currency"];
+        
+        NSMutableArray* models = [[NSMutableArray alloc]init];
+        
+        for (NSDictionary* json in responseObject[@"models"])
+        {
+            IMPricingResponseModel* model = [[IMPricingResponseModel alloc] init];
+            model.toolId = json[@"toolID"];
+            model.modelReference = json[@"modelReference"];
+            model.materialId = json[@"materialID"];
+            model.materialName = json[@"materialName"];
+            model.finishId = json[@"finishID"];
+            model.finishingName = json[@"finishingName"];
+            model.surfaceCm2 = ((NSNumber*)json[@"surfaceCm2"]).floatValue;
+            model.volumeCm3 = ((NSNumber*)json[@"volumeCm3"]).floatValue;
+            
+            model.quantity = ((NSNumber*)json[@"quantity"]).intValue;
+            model.totalPrice = ((NSNumber*)json[@"totalPrice"]).floatValue;
+            
+            model.xDimMm = ((NSNumber*)json[@"xDimMm"]).floatValue;
+            model.yDimMm = ((NSNumber*)json[@"yDimMm"]).floatValue;
+            model.zDimMm = ((NSNumber*)json[@"zDimMm"]).floatValue;
+            
+            [models addObject:model];
+        }
+        
+        response.models = models;
+        
+        IMPricingShipmentCost* shipmentCost = [[IMPricingShipmentCost alloc] init];
+        
+        NSMutableArray* shipmentServices = [[NSMutableArray alloc] init];
+
+        NSString* shipmentError = [[responseObject objectForKey:@"shipmentCost"] objectForKey:@"shipmentError"];
+        
+        if(shipmentError != nil)
+        {
+            shipmentCost.shipmentError = shipmentError;
+        }
+        else
+        {
+            for (NSDictionary* json in responseObject[@"shipmentCost"][@"services"])
+            {
+                IMPricingShipmentService* shipmentService = [[IMPricingShipmentService alloc] init];
+                shipmentService.daysInTransit = ((NSNumber*)json[@"daysInTransit"]).intValue;
+                shipmentService.name = json[@"name"];
+                shipmentService.value = ((NSNumber*)json[@"value"]).floatValue;
+            
+                [shipmentServices addObject: shipmentService];
+            }
+            shipmentCost.services = shipmentServices;
+        }
+        
+        response.shipmentCost = shipmentCost;
+        
+        return success(response);
+    }
+    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+        NSLog(@"Error: %@", [error description]);
+    }
+     ];
+    
+    
+}
+
+
+
+
 
 
 - (NSDate*) convertToNSDateShort: (NSString*) strDate

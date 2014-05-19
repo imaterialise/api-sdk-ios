@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "UploadModelViewController.h"
 #import "UploadModelReportViewController.h"
+#import "ParameterPricingViewController.h"
 
 @interface MasterViewController () {
     NSMutableArray *objects;
@@ -25,6 +26,7 @@
     objects = [[NSMutableArray alloc] init];
     [objects addObject:@"Upload model"];
     [objects addObject:@"Uploaded models reporting"];
+    [objects addObject:@"Price calculation by parameters"];
 }
 
 #pragma mark - Table View
@@ -60,6 +62,12 @@
     {
         UploadModelReportViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier: @"UploadModelReportViewController"];
 
+        [self.navigationController pushViewController:controller animated: true];
+    }
+    else if(indexPath.row == 2)
+    {
+        ParameterPricingViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier: @"ParameterPricingViewController"];
+        
         [self.navigationController pushViewController:controller animated: true];
     }
     

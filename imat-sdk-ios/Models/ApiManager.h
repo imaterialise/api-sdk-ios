@@ -11,8 +11,13 @@
 #import "IMModelResponse.h"
 #import "IMUploadModelReportRequest.h"
 #import "IMUploadModelReportResponse.h"
+#import "IMParametersPricingRequest.h"
+#import "IMParametersPricingResponse.h"
+
 
 @interface ApiManager : NSObject
+
++ (NSString*) toolId;
 
 + (void) setup: (NSString*) siteUrl toolId: (NSString*) toolId apiCode: (NSString*) apiCode;
 
@@ -25,6 +30,11 @@
 - (void) getModelsReport: (IMUploadModelReportRequest*) request
                  success: (void(^)(IMUploadModelReportResponse* reponse)) success
                  failure: (void(^)(NSError* error)) failure;
+
+- (void) getPrice: (IMParametersPricingRequest*) request
+                 success: (void(^)(IMParametersPricingResponse* reponse)) success
+                 failure: (void(^)(NSError* error)) failure;
+
 
 
 @end

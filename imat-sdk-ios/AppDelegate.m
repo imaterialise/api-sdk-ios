@@ -20,8 +20,8 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
-    NSString* apiCode = @"[ApiCode here]";
-    NSString* toolId = @"[ToolId here]";
+    NSString* apiCode = @"1E0C64D0-AEA9-490D-BA5E-7B02387EA968";
+    NSString* toolId = @"adca84dc-efb1-4a94-9507-336ce4a00029";
     
     if([apiCode isEqual:@"[ApiCode here]"])
     {

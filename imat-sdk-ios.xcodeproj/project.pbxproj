@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B3D679192A0DC70021F786 /* IMPricingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D678192A0DC70021F786 /* IMPricingModel.m */; };
+		00B3D67C192A0E700021F786 /* IMPricingShipment.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D67B192A0E700021F786 /* IMPricingShipment.m */; };
+		00B3D67F192A0EBD0021F786 /* IMParametersPricingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D67E192A0EBD0021F786 /* IMParametersPricingRequest.m */; };
+		00B3D682192A0F920021F786 /* IMParametersPricingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D681192A0F920021F786 /* IMParametersPricingResponse.m */; };
+		00B3D685192A13320021F786 /* ParameterPricingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D684192A13320021F786 /* ParameterPricingViewController.m */; };
+		00B3D688192A2C400021F786 /* IMPricingShipmentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D687192A2C400021F786 /* IMPricingShipmentService.m */; };
+		00B3D68B192A2CEF0021F786 /* IMPricingShipmentCost.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D68A192A2CEF0021F786 /* IMPricingShipmentCost.m */; };
+		00B3D68E192A2D4B0021F786 /* IMError.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D68D192A2D4B0021F786 /* IMError.m */; };
+		00B3D691192A2E770021F786 /* IMPricingResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D690192A2E770021F786 /* IMPricingResponseModel.m */; };
+		00B3D694192A33490021F786 /* ParameterPricingResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D693192A33490021F786 /* ParameterPricingResultViewController.m */; };
 		00BBBE331920C3BB0068DC9E /* UploadModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BBBE321920C3BB0068DC9E /* UploadModelViewController.m */; };
 		00BBBE361920C7480068DC9E /* UploadModelResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BBBE351920C7480068DC9E /* UploadModelResultViewController.m */; };
 		00BBBE3A1920CE3A0068DC9E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BBBE391920CE3A0068DC9E /* MBProgressHUD.m */; };
@@ -56,6 +66,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B3D677192A0DC70021F786 /* IMPricingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPricingModel.h; sourceTree = "<group>"; };
+		00B3D678192A0DC70021F786 /* IMPricingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPricingModel.m; sourceTree = "<group>"; };
+		00B3D67A192A0E700021F786 /* IMPricingShipment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPricingShipment.h; sourceTree = "<group>"; };
+		00B3D67B192A0E700021F786 /* IMPricingShipment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPricingShipment.m; sourceTree = "<group>"; };
+		00B3D67D192A0EBD0021F786 /* IMParametersPricingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMParametersPricingRequest.h; sourceTree = "<group>"; };
+		00B3D67E192A0EBD0021F786 /* IMParametersPricingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMParametersPricingRequest.m; sourceTree = "<group>"; };
+		00B3D680192A0F920021F786 /* IMParametersPricingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMParametersPricingResponse.h; sourceTree = "<group>"; };
+		00B3D681192A0F920021F786 /* IMParametersPricingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMParametersPricingResponse.m; sourceTree = "<group>"; };
+		00B3D683192A13320021F786 /* ParameterPricingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterPricingViewController.h; sourceTree = "<group>"; };
+		00B3D684192A13320021F786 /* ParameterPricingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterPricingViewController.m; sourceTree = "<group>"; };
+		00B3D686192A2C400021F786 /* IMPricingShipmentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPricingShipmentService.h; sourceTree = "<group>"; };
+		00B3D687192A2C400021F786 /* IMPricingShipmentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPricingShipmentService.m; sourceTree = "<group>"; };
+		00B3D689192A2CEF0021F786 /* IMPricingShipmentCost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPricingShipmentCost.h; sourceTree = "<group>"; };
+		00B3D68A192A2CEF0021F786 /* IMPricingShipmentCost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPricingShipmentCost.m; sourceTree = "<group>"; };
+		00B3D68C192A2D4B0021F786 /* IMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMError.h; sourceTree = "<group>"; };
+		00B3D68D192A2D4B0021F786 /* IMError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMError.m; sourceTree = "<group>"; };
+		00B3D68F192A2E770021F786 /* IMPricingResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPricingResponseModel.h; sourceTree = "<group>"; };
+		00B3D690192A2E770021F786 /* IMPricingResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPricingResponseModel.m; sourceTree = "<group>"; };
+		00B3D692192A33490021F786 /* ParameterPricingResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterPricingResultViewController.h; sourceTree = "<group>"; };
+		00B3D693192A33490021F786 /* ParameterPricingResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterPricingResultViewController.m; sourceTree = "<group>"; };
 		00BBBE311920C3BB0068DC9E /* UploadModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadModelViewController.h; path = Controllers/UploadModelViewController.h; sourceTree = "<group>"; };
 		00BBBE321920C3BB0068DC9E /* UploadModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadModelViewController.m; path = Controllers/UploadModelViewController.m; sourceTree = "<group>"; };
 		00BBBE341920C7480068DC9E /* UploadModelResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadModelResultViewController.h; path = Controllers/UploadModelResultViewController.h; sourceTree = "<group>"; };
@@ -145,6 +175,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00B3D675192A0D6A0021F786 /* Pricing */ = {
+			isa = PBXGroup;
+			children = (
+				00B3D677192A0DC70021F786 /* IMPricingModel.h */,
+				00B3D678192A0DC70021F786 /* IMPricingModel.m */,
+				00B3D67A192A0E700021F786 /* IMPricingShipment.h */,
+				00B3D67B192A0E700021F786 /* IMPricingShipment.m */,
+				00B3D67D192A0EBD0021F786 /* IMParametersPricingRequest.h */,
+				00B3D67E192A0EBD0021F786 /* IMParametersPricingRequest.m */,
+				00B3D680192A0F920021F786 /* IMParametersPricingResponse.h */,
+				00B3D681192A0F920021F786 /* IMParametersPricingResponse.m */,
+				00B3D686192A2C400021F786 /* IMPricingShipmentService.h */,
+				00B3D687192A2C400021F786 /* IMPricingShipmentService.m */,
+				00B3D689192A2CEF0021F786 /* IMPricingShipmentCost.h */,
+				00B3D68A192A2CEF0021F786 /* IMPricingShipmentCost.m */,
+				00B3D68F192A2E770021F786 /* IMPricingResponseModel.h */,
+				00B3D690192A2E770021F786 /* IMPricingResponseModel.m */,
+			);
+			path = Pricing;
+			sourceTree = "<group>";
+		};
+		00B3D676192A0D8E0021F786 /* Pricing */ = {
+			isa = PBXGroup;
+			children = (
+				00B3D683192A13320021F786 /* ParameterPricingViewController.h */,
+				00B3D684192A13320021F786 /* ParameterPricingViewController.m */,
+				00B3D692192A33490021F786 /* ParameterPricingResultViewController.h */,
+				00B3D693192A33490021F786 /* ParameterPricingResultViewController.m */,
+			);
+			name = Pricing;
+			path = Controllers/Pricing;
+			sourceTree = "<group>";
+		};
 		00BBBE2B1920C3330068DC9E /* UploadModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +224,7 @@
 		00BBBE2C1920C3440068DC9E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				00B3D676192A0D8E0021F786 /* Pricing */,
 				00F079D319260AD400566136 /* ModelReport */,
 				00BBBE3B192235420068DC9E /* UploadModel */,
 			);
@@ -251,8 +315,11 @@
 		00E07487191BEC4900CA50F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				00B3D675192A0D6A0021F786 /* Pricing */,
 				00F079D719260D4100566136 /* UploadModelReport */,
 				00BBBE2B1920C3330068DC9E /* UploadModel */,
+				00B3D68C192A2D4B0021F786 /* IMError.h */,
+				00B3D68D192A2D4B0021F786 /* IMError.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -418,24 +485,34 @@
 			files = (
 				00E074B1191BEC4900CA50F6 /* AFURLSessionManager.m in Sources */,
 				00E074AE191BEC4900CA50F6 /* AFURLConnectionOperation.m in Sources */,
+				00B3D679192A0DC70021F786 /* IMPricingModel.m in Sources */,
 				00E074A9191BEC4900CA50F6 /* AFHTTPRequestOperation.m in Sources */,
 				00E074A5191BEC4900CA50F6 /* ApiManager.m in Sources */,
 				00E074AA191BEC4900CA50F6 /* AFHTTPRequestOperationManager.m in Sources */,
 				00F079E0192618F000566136 /* IMUploadModel.m in Sources */,
 				00F079E61926232D00566136 /* UploadModelReportDetailsViewController.m in Sources */,
 				00F079DA19260D6500566136 /* IMUploadModelReportRequest.m in Sources */,
+				00B3D694192A33490021F786 /* ParameterPricingResultViewController.m in Sources */,
+				00B3D67C192A0E700021F786 /* IMPricingShipment.m in Sources */,
 				00E0745D191BEC1500CA50F6 /* AppDelegate.m in Sources */,
+				00B3D691192A2E770021F786 /* IMPricingResponseModel.m in Sources */,
 				00E074A8191BEC4900CA50F6 /* IMModelResponse.m in Sources */,
+				00B3D685192A13320021F786 /* ParameterPricingViewController.m in Sources */,
 				00F079D619260B2F00566136 /* UploadModelReportViewController.m in Sources */,
+				00B3D688192A2C400021F786 /* IMPricingShipmentService.m in Sources */,
 				00BBBE3A1920CE3A0068DC9E /* MBProgressHUD.m in Sources */,
+				00B3D68E192A2D4B0021F786 /* IMError.m in Sources */,
 				00E074AB191BEC4900CA50F6 /* AFHTTPSessionManager.m in Sources */,
 				00E07466191BEC1500CA50F6 /* MasterViewController.m in Sources */,
 				00F079E319261E0000566136 /* UploadModelReportResultViewController.m in Sources */,
 				00E074A7191BEC4900CA50F6 /* IMModelRequest.m in Sources */,
+				00B3D682192A0F920021F786 /* IMParametersPricingResponse.m in Sources */,
+				00B3D68B192A2CEF0021F786 /* IMPricingShipmentCost.m in Sources */,
 				00E074A6191BEC4900CA50F6 /* IMFile.m in Sources */,
 				00E074AD191BEC4900CA50F6 /* AFSecurityPolicy.m in Sources */,
 				00F079DD19260E2900566136 /* IMUploadModelReportResponse.m in Sources */,
 				00BBBE361920C7480068DC9E /* UploadModelResultViewController.m in Sources */,
+				00B3D67F192A0EBD0021F786 /* IMParametersPricingRequest.m in Sources */,
 				00E07459191BEC1500CA50F6 /* main.m in Sources */,
 				00E074AF191BEC4900CA50F6 /* AFURLRequestSerialization.m in Sources */,
 				00E074AC191BEC4900CA50F6 /* AFNetworkReachabilityManager.m in Sources */,
