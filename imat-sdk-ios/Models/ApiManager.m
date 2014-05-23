@@ -72,7 +72,7 @@ static NSString* siteUrl;
 
 - (void) uploadModel: (IMModelRequest*) model
              success: (void(^)(IMModelResponse* modelReponse)) success
-             failure: (void(^)(NSError* error)) failure
+             failure: (void(^)(IMError* error)) failure
 {
     NSString* url = [NSString stringWithFormat:@"%@/web-api/tool/%@/model", [ApiManager siteUrl], [ApiManager toolId]];
     
@@ -107,7 +107,10 @@ static NSString* siteUrl;
         success(response);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
-        failure(error);
+        IMError* e = [[IMError alloc] init];
+        e.code = error.code;
+        e.message = [error description];
+        failure(e);
     }];
  
     [m.operationQueue addOperation:operation];
@@ -117,7 +120,7 @@ static NSString* siteUrl;
 
 - (void) getModelsReport: (IMUploadModelReportRequest*) request
              success: (void(^)(IMUploadModelReportResponse* reponse)) success
-             failure: (void(^)(NSError* error)) failure
+             failure: (void(^)(IMError* error)) failure
 {
     NSString* url = [NSString stringWithFormat:@"%@/web-api/reporting/models/uploaded", [ApiManager siteUrl]];
     
@@ -175,11 +178,13 @@ static NSString* siteUrl;
                        
                        response.models = models;
                        
-                       return success(response);
+                       success(response);
                    }
                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                       failure(error);
-                       NSLog(@"Error: %@", [error description]);
+                       IMError* e = [[IMError alloc] init];
+                       e.code = error.code;
+                       e.message = [error description];
+                       failure(e);
                    }
     ];
 }
@@ -187,7 +192,7 @@ static NSString* siteUrl;
 
 - (void) getPrice: (IMParametersPricingRequest*) request
           success: (void(^)(IMParametersPricingResponse* reponse)) success
-          failure: (void(^)(NSError* error)) failure
+          failure: (void(^)(IMError* error)) failure
 {
     NSString* url = [NSString stringWithFormat:@"%@/web-api/pricing", [ApiManager siteUrl]];
     
@@ -244,7 +249,8 @@ static NSString* siteUrl;
             error.message = errorJson[@"message"];
             response.error = error;
             
-            return success(response);
+            failure(error);
+            return;
         }
 
         
@@ -303,16 +309,215 @@ static NSString* siteUrl;
         
         response.shipmentCost = shipmentCost;
         
-        return success(response);
+        success(response);
     }
     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(error);
-        NSLog(@"Error: %@", [error description]);
-    }
-     ];
-    
-    
+        IMError* e = [[IMError alloc] init];
+        e.code = error.code;
+        e.message = [error description];
+        failure(e);
+    }];
 }
+
+
+
+- (void) registerCartItem: (IMCartItemRequest*) request
+                  success: (void(^)(IMCartItemResponse* reponse)) success
+                  failure: (void(^)(IMError* error)) failure
+{
+    NSString* url = [NSString stringWithFormat:@"%@/web-api/cartitems/register", [ApiManager siteUrl]];
+    
+    AFHTTPRequestOperationManager* m = [AFHTTPRequestOperationManager manager];
+    m.securityPolicy.allowInvalidCertificates = true;
+    m.requestSerializer = [AFJSONRequestSerializer serializer];
+    m.responseSerializer = [AFJSONResponseSerializer serializer];
+    [m.requestSerializer setValue: [ApiManager apiCode] forHTTPHeaderField: @"ApiCode"];
+    
+    NSMutableURLRequest *urlRequest = [m.requestSerializer multipartFormRequestWithMethod:@"POST" URLString: url parameters:nil constructingBodyWithBlock:^(id < AFMultipartFormData > formData) {
+        
+        NSMutableDictionary* cartItemRequestJson = [[NSMutableDictionary alloc] init];
+        NSMutableArray* cartItems = [[NSMutableArray alloc] init];
+
+        int fileNumber = 0;
+        for (IMCartItemModelRequest* cartItem in request.cartItems)
+        {
+                NSMutableDictionary* modelJson = [[NSMutableDictionary alloc] init];
+                [modelJson setValue: cartItem.toolId forKey:@"toolID"];
+                [modelJson setValue: cartItem.myCartItemReference forKey:@"myCartItemReference"];
+                [modelJson setValue: cartItem.modelID forKey:@"modelID"];
+                [modelJson setValue: [NSNumber numberWithFloat: cartItem.fileScaleFactor] forKey:@"fileScaleFactor"];
+                [modelJson setValue: cartItem.fileUnits forKey:@"fileUnits"];
+                [modelJson setValue: cartItem.materialId forKey:@"materialID"];
+                [modelJson setValue: cartItem.finishId forKey:@"finishID"];
+                [modelJson setValue: [NSNumber numberWithInt: cartItem.quantity] forKey:@"quantity"];
+                [modelJson setValue: [NSNumber numberWithFloat: cartItem.xDimMm] forKey:@"xDimMm"];
+                [modelJson setValue: [NSNumber numberWithFloat: cartItem.yDimMm] forKey:@"yDimMm"];
+                [modelJson setValue: [NSNumber numberWithFloat: cartItem.zDimMm] forKey:@"zDimMm"];
+                [modelJson setValue: [NSNumber numberWithFloat: cartItem.volumeCm3] forKey:@"volumeCm3"];
+                [modelJson setValue: [NSNumber numberWithFloat: cartItem.surfaceCm2] forKey:@"surfaceCm2"];
+                [modelJson setValue: [NSNumber numberWithFloat: cartItem.iMatAPIPrice] forKey:@"iMatAPIPrice"];
+                [modelJson setValue: [NSNumber numberWithFloat: cartItem.mySalesPrice] forKey:@"mySalesPrice"];
+            
+            if(cartItem.file != NULL)
+            {
+                [modelJson setValue: cartItem.file.name forKey:@"modelFileName"];
+                [formData appendPartWithFileData: cartItem.file.data name: [NSString stringWithFormat:@"file[%d]", fileNumber] fileName: cartItem.file.name mimeType: cartItem.file.mimeType];
+                fileNumber++;
+            }
+            
+            [cartItems addObject:modelJson];
+        }
+        
+        [cartItemRequestJson setValue:cartItems forKey:@"cartItems"];
+        [cartItemRequestJson setValue:request.currency forKey:@"currency"];
+        
+        [formData appendPartWithFormData:[[self serializeDictionary: cartItemRequestJson] dataUsingEncoding: NSUTF16StringEncoding] name:@"request" contentType: @"application/json"];
+        
+    } error: nil];
+    
+    AFHTTPRequestOperation *operation = [m HTTPRequestOperationWithRequest:urlRequest success:^(AFHTTPRequestOperation *operation, id responseObject){
+        
+        IMCartItemResponse * response = [[IMCartItemResponse alloc] init];
+        
+        NSDictionary* errorJson = [responseObject objectForKey:@"error"];
+        if(errorJson != nil)
+        {
+            IMError* error = [[IMError alloc] init];
+            error.code = ((NSNumber*)errorJson[@"code"]).intValue;
+            error.message = errorJson[@"message"];
+            response.error = error;
+            
+            return failure(error);
+        }
+        
+        response.currency = responseObject[@"currency"];
+        
+        NSMutableArray* cartItems = [[NSMutableArray alloc]init];
+        
+        for (NSDictionary* json in responseObject[@"cartItems"])
+        {
+            IMCartItemModelResponse* carItem = [[IMCartItemModelResponse alloc] init];
+            carItem.cartItemId = json[@"cartItemID"];
+            carItem.toolId = json[@"toolID"];
+            carItem.modelId = json[@"modelID"];
+            carItem.modelFileName = json[@"modelFileName"];
+            carItem.myCartItemReference = json[@"myCartItemReference"];
+            carItem.materialId = json[@"materialID"];
+            carItem.finishId = json[@"finishID"];
+            carItem.surfaceCm2 = ((NSNumber*)json[@"surfaceCm2"]).floatValue;
+            carItem.volumeCm3 = ((NSNumber*)json[@"volumeCm3"]).floatValue;
+            
+            carItem.fileUnits = json[@"fileUnits"];
+            carItem.fileScaleFactor = ((NSNumber*)json[@"fileScaleFactor"]).floatValue;
+            
+            carItem.quantity = ((NSNumber*)json[@"quantity"]).intValue;
+            carItem.iMatAPIPrice = ((NSNumber*)json[@"iMatAPIPrice"]).floatValue;
+            carItem.iMatPrice = ((NSNumber*)json[@"iMatPrice"]).floatValue;
+            carItem.mySalesPrice = ((NSNumber*)json[@"mySalesPrice"]).floatValue;
+            carItem.mySalesUnitPrice = ((NSNumber*)json[@"mySalesUnitPrice"]).floatValue;
+            
+            carItem.xDimMm = ((NSNumber*)json[@"xDimMm"]).floatValue;
+            carItem.yDimMm = ((NSNumber*)json[@"yDimMm"]).floatValue;
+            carItem.zDimMm = ((NSNumber*)json[@"zDimMm"]).floatValue;
+            
+            carItem.validUntil = [self convertToNSDate: ((NSString*)json[@"validUntil"])];
+            
+            [cartItems addObject:carItem];
+        }
+        
+        response.cartItems = cartItems;
+        
+        success(response);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        IMError* e = [[IMError alloc] init];
+        e.code = error.code;
+        e.message = [error description];
+        failure(e);
+    }];
+    
+    [m.operationQueue addOperation:operation];
+}
+
+
+- (void) registerCart: (IMCartRequest*) request
+              success: (void(^)(IMCartResponse* reponse)) success
+              failure: (void(^)(IMError* error)) failure
+{
+    NSString* url = [NSString stringWithFormat:@"%@/web-api/cart/post", [ApiManager siteUrl]];
+    
+    AFHTTPRequestOperationManager* m = [AFHTTPRequestOperationManager manager];
+    m.securityPolicy.allowInvalidCertificates = true;
+    m.requestSerializer = [AFJSONRequestSerializer serializer];
+    m.responseSerializer = [AFJSONResponseSerializer serializer];
+    [m.requestSerializer setValue: [ApiManager apiCode] forHTTPHeaderField: @"ApiCode"];
+    
+
+    
+    NSMutableDictionary* cartRequestJson = [[NSMutableDictionary alloc] init];
+    NSMutableArray* cartItems = [[NSMutableArray alloc] init];
+    
+    for (IMCartItemCartRequest* cartItem in request.cartItems)
+    {
+        NSMutableDictionary* modelJson = [[NSMutableDictionary alloc] init];
+        [modelJson setValue: cartItem.cartItemId forKey:@"cartItemID"];
+        [cartItems addObject:modelJson];
+    }
+    
+    [cartRequestJson setValue:cartItems forKey:@"cartItems"];
+    [cartRequestJson setValue:request.currency forKey:@"myCartReference"];
+    [cartRequestJson setValue:request.currency forKey:@"currency"];
+    [cartRequestJson setValue:request.currency forKey:@"iframeTheme"];
+    [cartRequestJson setValue:request.currency forKey:@"returnUrl"];
+    [cartRequestJson setValue:request.currency forKey:@"orderConfirmationUrl"];
+    [cartRequestJson setValue:request.currency forKey:@"failureUrl"];
+    [cartRequestJson setValue:request.currency forKey:@"promoCode"];
+    
+    NSMutableDictionary* shippingInfoRequestJson = [[NSMutableDictionary alloc] init];
+    [shippingInfoRequestJson setValue: request.shippingInfo.firstName forKey:@"firstName"];
+    [shippingInfoRequestJson setValue: request.shippingInfo.lastName forKey:@"lastName"];
+    [shippingInfoRequestJson setValue: request.shippingInfo.email forKey:@"email"];
+    [shippingInfoRequestJson setValue: request.shippingInfo.phone forKey:@"phone"];
+    [shippingInfoRequestJson setValue: request.shippingInfo.company forKey:@"company"];
+    [shippingInfoRequestJson setValue: request.shippingInfo.line1 forKey:@"line1"];
+    [shippingInfoRequestJson setValue: request.shippingInfo.line2 forKey:@"line2"];
+    [shippingInfoRequestJson setValue: request.shippingInfo.countryCode forKey:@"countryCode"];
+    [shippingInfoRequestJson setValue: request.shippingInfo.stateCode forKey:@"stateCode"];
+    [shippingInfoRequestJson setValue: request.shippingInfo.zipCode forKey:@"zipCode"];
+    [shippingInfoRequestJson setValue: request.shippingInfo.city forKey:@"city"];
+    
+    [cartRequestJson setValue: shippingInfoRequestJson forKey:@"shippingInfo"];
+    
+    NSMutableDictionary* billingInfoRequestJson = [[NSMutableDictionary alloc] init];
+    [billingInfoRequestJson setValue: request.shippingInfo.firstName forKey:@"firstName"];
+    [billingInfoRequestJson setValue: request.shippingInfo.lastName forKey:@"lastName"];
+    [billingInfoRequestJson setValue: request.shippingInfo.email forKey:@"email"];
+    [billingInfoRequestJson setValue: request.shippingInfo.phone forKey:@"phone"];
+    [billingInfoRequestJson setValue: request.shippingInfo.company forKey:@"company"];
+    [billingInfoRequestJson setValue: request.shippingInfo.line1 forKey:@"line1"];
+    [billingInfoRequestJson setValue: request.shippingInfo.line2 forKey:@"line2"];
+    [billingInfoRequestJson setValue: request.shippingInfo.countryCode forKey:@"countryCode"];
+    [billingInfoRequestJson setValue: request.shippingInfo.stateCode forKey:@"stateCode"];
+    [billingInfoRequestJson setValue: request.shippingInfo.zipCode forKey:@"zipCode"];
+    [billingInfoRequestJson setValue: request.shippingInfo.city forKey:@"city"];
+    [billingInfoRequestJson setValue: request.shippingInfo.vatNumber forKey:@"vatNumber"];
+    
+    [cartRequestJson setValue: billingInfoRequestJson forKey:@"billingInfo"];
+    
+    
+    [m POST: url parameters: cartRequestJson success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        success(nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        IMError* e = [[IMError alloc] init];
+        e.code = error.code;
+        e.message = [error description];
+        failure(e);
+    }];
+}
+
+
+
 
 
 
@@ -344,6 +549,18 @@ static NSString* siteUrl;
     NSDate *date = [dateFormatter dateFromString:strDate];
     
     return date;
+}
+
+-(NSString*) serializeDictionary:(id)object
+{
+    NSError *writeError = nil;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:&writeError];
+    
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    
+    return jsonString;
 }
 
 @end

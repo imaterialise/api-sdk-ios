@@ -21,7 +21,7 @@
     }
     
     NSString* apiCode = @"[ApiCode here]";
-    NSString* toolId = @"[Tool Id]";
+    NSString* toolId = @"[ToolId here]";
     
     if([apiCode isEqual:@"[ApiCode here]"])
     {

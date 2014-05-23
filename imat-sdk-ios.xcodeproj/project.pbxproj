@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00161DE5192E385E00D497A4 /* IMCartItemRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161DE4192E385E00D497A4 /* IMCartItemRequest.m */; };
+		00161DE8192E398500D497A4 /* IMCartItemModelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161DE7192E398500D497A4 /* IMCartItemModelRequest.m */; };
+		00161DEB192E3AA000D497A4 /* IMCartItemResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161DEA192E3AA000D497A4 /* IMCartItemResponse.m */; };
+		00161DEE192E3AF800D497A4 /* IMCartItemModelResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161DED192E3AF800D497A4 /* IMCartItemModelResponse.m */; };
+		00161DF2192E502E00D497A4 /* CartItemAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161DF1192E502E00D497A4 /* CartItemAddViewController.m */; };
+		00161DF5192F390400D497A4 /* CartItemAddResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161DF4192F390400D497A4 /* CartItemAddResultViewController.m */; };
+		00161DF9192F3A2600D497A4 /* IMCartRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161DF8192F3A2600D497A4 /* IMCartRequest.m */; };
+		00161DFC192F3A5A00D497A4 /* IMShippingInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161DFB192F3A5A00D497A4 /* IMShippingInfoRequest.m */; };
+		00161DFF192F3A7100D497A4 /* IMBillingInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161DFE192F3A7100D497A4 /* IMBillingInfoRequest.m */; };
+		00161E02192F3A8A00D497A4 /* IMCartResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161E01192F3A8A00D497A4 /* IMCartResponse.m */; };
+		00161E05192F3C9D00D497A4 /* IMCartItemCartRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161E04192F3C9D00D497A4 /* IMCartItemCartRequest.m */; };
+		00161E09192F3DD700D497A4 /* CartRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00161E08192F3DD700D497A4 /* CartRegistrationViewController.m */; };
 		00B3D679192A0DC70021F786 /* IMPricingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D678192A0DC70021F786 /* IMPricingModel.m */; };
 		00B3D67C192A0E700021F786 /* IMPricingShipment.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D67B192A0E700021F786 /* IMPricingShipment.m */; };
 		00B3D67F192A0EBD0021F786 /* IMParametersPricingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B3D67E192A0EBD0021F786 /* IMParametersPricingRequest.m */; };
@@ -66,6 +78,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00161DE3192E385E00D497A4 /* IMCartItemRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCartItemRequest.h; sourceTree = "<group>"; };
+		00161DE4192E385E00D497A4 /* IMCartItemRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMCartItemRequest.m; sourceTree = "<group>"; };
+		00161DE6192E398500D497A4 /* IMCartItemModelRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCartItemModelRequest.h; sourceTree = "<group>"; };
+		00161DE7192E398500D497A4 /* IMCartItemModelRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMCartItemModelRequest.m; sourceTree = "<group>"; };
+		00161DE9192E3AA000D497A4 /* IMCartItemResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCartItemResponse.h; sourceTree = "<group>"; };
+		00161DEA192E3AA000D497A4 /* IMCartItemResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMCartItemResponse.m; sourceTree = "<group>"; };
+		00161DEC192E3AF800D497A4 /* IMCartItemModelResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCartItemModelResponse.h; sourceTree = "<group>"; };
+		00161DED192E3AF800D497A4 /* IMCartItemModelResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMCartItemModelResponse.m; sourceTree = "<group>"; };
+		00161DF0192E502E00D497A4 /* CartItemAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartItemAddViewController.h; sourceTree = "<group>"; };
+		00161DF1192E502E00D497A4 /* CartItemAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartItemAddViewController.m; sourceTree = "<group>"; };
+		00161DF3192F390400D497A4 /* CartItemAddResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartItemAddResultViewController.h; sourceTree = "<group>"; };
+		00161DF4192F390400D497A4 /* CartItemAddResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartItemAddResultViewController.m; sourceTree = "<group>"; };
+		00161DF7192F3A2600D497A4 /* IMCartRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCartRequest.h; sourceTree = "<group>"; };
+		00161DF8192F3A2600D497A4 /* IMCartRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMCartRequest.m; sourceTree = "<group>"; };
+		00161DFA192F3A5A00D497A4 /* IMShippingInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMShippingInfoRequest.h; sourceTree = "<group>"; };
+		00161DFB192F3A5A00D497A4 /* IMShippingInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMShippingInfoRequest.m; sourceTree = "<group>"; };
+		00161DFD192F3A7100D497A4 /* IMBillingInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBillingInfoRequest.h; sourceTree = "<group>"; };
+		00161DFE192F3A7100D497A4 /* IMBillingInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMBillingInfoRequest.m; sourceTree = "<group>"; };
+		00161E00192F3A8A00D497A4 /* IMCartResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCartResponse.h; sourceTree = "<group>"; };
+		00161E01192F3A8A00D497A4 /* IMCartResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMCartResponse.m; sourceTree = "<group>"; };
+		00161E03192F3C9D00D497A4 /* IMCartItemCartRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCartItemCartRequest.h; sourceTree = "<group>"; };
+		00161E04192F3C9D00D497A4 /* IMCartItemCartRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMCartItemCartRequest.m; sourceTree = "<group>"; };
+		00161E07192F3DD700D497A4 /* CartRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartRegistrationViewController.h; sourceTree = "<group>"; };
+		00161E08192F3DD700D497A4 /* CartRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartRegistrationViewController.m; sourceTree = "<group>"; };
 		00B3D677192A0DC70021F786 /* IMPricingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPricingModel.h; sourceTree = "<group>"; };
 		00B3D678192A0DC70021F786 /* IMPricingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPricingModel.m; sourceTree = "<group>"; };
 		00B3D67A192A0E700021F786 /* IMPricingShipment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPricingShipment.h; sourceTree = "<group>"; };
@@ -175,6 +211,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00161DE2192E37ED00D497A4 /* CartItem */ = {
+			isa = PBXGroup;
+			children = (
+				00161DE3192E385E00D497A4 /* IMCartItemRequest.h */,
+				00161DE4192E385E00D497A4 /* IMCartItemRequest.m */,
+				00161DE6192E398500D497A4 /* IMCartItemModelRequest.h */,
+				00161DE7192E398500D497A4 /* IMCartItemModelRequest.m */,
+				00161DE9192E3AA000D497A4 /* IMCartItemResponse.h */,
+				00161DEA192E3AA000D497A4 /* IMCartItemResponse.m */,
+				00161DEC192E3AF800D497A4 /* IMCartItemModelResponse.h */,
+				00161DED192E3AF800D497A4 /* IMCartItemModelResponse.m */,
+			);
+			path = CartItem;
+			sourceTree = "<group>";
+		};
+		00161DEF192E500100D497A4 /* CartItem */ = {
+			isa = PBXGroup;
+			children = (
+				00161DF0192E502E00D497A4 /* CartItemAddViewController.h */,
+				00161DF1192E502E00D497A4 /* CartItemAddViewController.m */,
+				00161DF3192F390400D497A4 /* CartItemAddResultViewController.h */,
+				00161DF4192F390400D497A4 /* CartItemAddResultViewController.m */,
+			);
+			name = CartItem;
+			path = Controllers/CartItem;
+			sourceTree = "<group>";
+		};
+		00161DF6192F39FB00D497A4 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				00161DF7192F3A2600D497A4 /* IMCartRequest.h */,
+				00161DF8192F3A2600D497A4 /* IMCartRequest.m */,
+				00161E03192F3C9D00D497A4 /* IMCartItemCartRequest.h */,
+				00161E04192F3C9D00D497A4 /* IMCartItemCartRequest.m */,
+				00161DFA192F3A5A00D497A4 /* IMShippingInfoRequest.h */,
+				00161DFB192F3A5A00D497A4 /* IMShippingInfoRequest.m */,
+				00161DFD192F3A7100D497A4 /* IMBillingInfoRequest.h */,
+				00161DFE192F3A7100D497A4 /* IMBillingInfoRequest.m */,
+				00161E00192F3A8A00D497A4 /* IMCartResponse.h */,
+				00161E01192F3A8A00D497A4 /* IMCartResponse.m */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		00161E06192F3DB000D497A4 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				00161E07192F3DD700D497A4 /* CartRegistrationViewController.h */,
+				00161E08192F3DD700D497A4 /* CartRegistrationViewController.m */,
+			);
+			name = Cart;
+			path = Controllers/Cart;
+			sourceTree = "<group>";
+		};
 		00B3D675192A0D6A0021F786 /* Pricing */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +314,8 @@
 		00BBBE2C1920C3440068DC9E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				00161E06192F3DB000D497A4 /* Cart */,
+				00161DEF192E500100D497A4 /* CartItem */,
 				00B3D676192A0D8E0021F786 /* Pricing */,
 				00F079D319260AD400566136 /* ModelReport */,
 				00BBBE3B192235420068DC9E /* UploadModel */,
@@ -315,6 +407,8 @@
 		00E07487191BEC4900CA50F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				00161DF6192F39FB00D497A4 /* Cart */,
+				00161DE2192E37ED00D497A4 /* CartItem */,
 				00B3D675192A0D6A0021F786 /* Pricing */,
 				00F079D719260D4100566136 /* UploadModelReport */,
 				00BBBE2B1920C3330068DC9E /* UploadModel */,
@@ -484,18 +578,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E074B1191BEC4900CA50F6 /* AFURLSessionManager.m in Sources */,
+				00161DF9192F3A2600D497A4 /* IMCartRequest.m in Sources */,
+				00161DEE192E3AF800D497A4 /* IMCartItemModelResponse.m in Sources */,
 				00E074AE191BEC4900CA50F6 /* AFURLConnectionOperation.m in Sources */,
 				00B3D679192A0DC70021F786 /* IMPricingModel.m in Sources */,
 				00E074A9191BEC4900CA50F6 /* AFHTTPRequestOperation.m in Sources */,
 				00E074A5191BEC4900CA50F6 /* ApiManager.m in Sources */,
 				00E074AA191BEC4900CA50F6 /* AFHTTPRequestOperationManager.m in Sources */,
+				00161DE5192E385E00D497A4 /* IMCartItemRequest.m in Sources */,
 				00F079E0192618F000566136 /* IMUploadModel.m in Sources */,
 				00F079E61926232D00566136 /* UploadModelReportDetailsViewController.m in Sources */,
 				00F079DA19260D6500566136 /* IMUploadModelReportRequest.m in Sources */,
+				00161E02192F3A8A00D497A4 /* IMCartResponse.m in Sources */,
 				00B3D694192A33490021F786 /* ParameterPricingResultViewController.m in Sources */,
 				00B3D67C192A0E700021F786 /* IMPricingShipment.m in Sources */,
 				00E0745D191BEC1500CA50F6 /* AppDelegate.m in Sources */,
 				00B3D691192A2E770021F786 /* IMPricingResponseModel.m in Sources */,
+				00161DE8192E398500D497A4 /* IMCartItemModelRequest.m in Sources */,
 				00E074A8191BEC4900CA50F6 /* IMModelResponse.m in Sources */,
 				00B3D685192A13320021F786 /* ParameterPricingViewController.m in Sources */,
 				00F079D619260B2F00566136 /* UploadModelReportViewController.m in Sources */,
@@ -506,13 +605,20 @@
 				00E07466191BEC1500CA50F6 /* MasterViewController.m in Sources */,
 				00F079E319261E0000566136 /* UploadModelReportResultViewController.m in Sources */,
 				00E074A7191BEC4900CA50F6 /* IMModelRequest.m in Sources */,
+				00161DEB192E3AA000D497A4 /* IMCartItemResponse.m in Sources */,
 				00B3D682192A0F920021F786 /* IMParametersPricingResponse.m in Sources */,
+				00161E05192F3C9D00D497A4 /* IMCartItemCartRequest.m in Sources */,
+				00161DFF192F3A7100D497A4 /* IMBillingInfoRequest.m in Sources */,
 				00B3D68B192A2CEF0021F786 /* IMPricingShipmentCost.m in Sources */,
+				00161E09192F3DD700D497A4 /* CartRegistrationViewController.m in Sources */,
 				00E074A6191BEC4900CA50F6 /* IMFile.m in Sources */,
+				00161DFC192F3A5A00D497A4 /* IMShippingInfoRequest.m in Sources */,
 				00E074AD191BEC4900CA50F6 /* AFSecurityPolicy.m in Sources */,
+				00161DF2192E502E00D497A4 /* CartItemAddViewController.m in Sources */,
 				00F079DD19260E2900566136 /* IMUploadModelReportResponse.m in Sources */,
 				00BBBE361920C7480068DC9E /* UploadModelResultViewController.m in Sources */,
 				00B3D67F192A0EBD0021F786 /* IMParametersPricingRequest.m in Sources */,
+				00161DF5192F390400D497A4 /* CartItemAddResultViewController.m in Sources */,
 				00E07459191BEC1500CA50F6 /* main.m in Sources */,
 				00E074AF191BEC4900CA50F6 /* AFURLRequestSerialization.m in Sources */,
 				00E074AC191BEC4900CA50F6 /* AFNetworkReachabilityManager.m in Sources */,

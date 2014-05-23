@@ -11,6 +11,7 @@
 
 @interface ParameterPricingResultViewController ()
 
+
 @property IMPricingResponseModel* model;
 
 @end

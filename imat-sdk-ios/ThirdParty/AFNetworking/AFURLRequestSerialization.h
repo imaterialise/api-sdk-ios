@@ -322,6 +322,11 @@ extern NSTimeInterval const kAFUploadStream3GSuggestedDelay;
                       fileName:(NSString *)fileName
                       mimeType:(NSString *)mimeType;
 
+
+- (void)appendPartWithFormData:(NSData *)data
+                          name:(NSString *)name
+                   contentType:(NSString *)contentType;
+
 /**
  Appends the HTTP headers `Content-Disposition: form-data; name=#{name}"`, followed by the encoded data and the multipart form boundary.
 

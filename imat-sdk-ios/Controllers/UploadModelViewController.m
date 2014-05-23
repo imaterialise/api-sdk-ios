@@ -54,7 +54,7 @@
          ((UIButton*)sender).enabled = true;
          [hud hide:true];
          
-     } failure: ^(NSError* error)
+     } failure: ^(IMError* error)
      {
          ((UIButton*)sender).enabled = true;
          [hud hide:true];
